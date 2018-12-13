@@ -5,18 +5,18 @@ $(document).ready(function() {
   var giorniGennaio = moment("2017-01", "YYYY-MM").daysInMonth();
   console.log(giorniGennaio);
   //salvo tutti i giorni di gennaio in un array;
-  var meseGennaio = [];
+  var gennaio = {
+    giorni : []
+  }
   var giorno = 0;
   for (var i = 1; i <= giorniGennaio; i++) {
     giorno = i;
-    meseGennaio.push(giorno);
+    gennaio.giorni.push(giorno);
   }
+console.log(gennaio);
 
-  console.log(meseGennaio);
-
-  console.log(meseGennaio.includes(1));
-  //chiamata per il mese di gennaio per scaricare festività
-  /*$.ajax({
+//chiamata per il mese di gennaio per scaricare festività
+  $.ajax({
     url: "https://holidayapi.com/v1/holidays",
     method: "GET",
     data: {
@@ -40,7 +40,7 @@ $(document).ready(function() {
         var trovato = false;
         var contatore = 0;
         while (!trovato) {
-          if (meseGennaio[contatore] == dataFestivita) {
+          if (gennaio.giorni[contatore] == dataFestivita) {
             console.log(contatore);
             console.log("trovato");
             trovato = true;
@@ -59,5 +59,5 @@ $(document).ready(function() {
     }
 
 
-  });*/
+  });
 });
