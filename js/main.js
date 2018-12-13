@@ -4,7 +4,7 @@ $(document).ready(function() {
 
   var giorniGennaio = moment("2017-01", "YYYY-MM").daysInMonth();
   console.log(giorniGennaio);
-  //salvo tutti i giorni di gennaio in un array;
+  //salvo tutti i giorni di gennaio in un oggetto;
   var gennaio = {
     giorni : []
   }
@@ -15,6 +15,15 @@ $(document).ready(function() {
   }
 console.log(gennaio);
 
+for (var i = 0; i < gennaio.giorni.length; i++) {
+  var templateBase = $('#listaGiorni').html();
+  var templateCompilato = Handlebars.compile(templateBase);
+  var context = {
+    giorni: gennaio.giorni[i],
+  };
+  var htmlStampato = templateCompilato(context);
+  $('#wrapElenco').append(htmlStampato);
+}
 //chiamata per il mese di gennaio per scaricare festività
   $.ajax({
     url: "https://holidayapi.com/v1/holidays",
@@ -35,15 +44,15 @@ console.log(gennaio);
         //console.log(festivitaRecuperata);
         //poi le converto in un numero singolo
         var dataFestivita = moment(festivitaRecuperata).format("D");
-        console.log("festa: " + dataFestivita);
+        //console.log("festa: " + dataFestivita);
         //applico il ciclo while con all'interno il confronta giorno / festivita
         var trovato = false;
         var contatore = 0;
         while (!trovato) {
           if (gennaio.giorni[contatore] == dataFestivita) {
-            console.log(contatore);
-            console.log("trovato");
+            console.log("trovato: " + dataFestivita);
             trovato = true;
+
           } else {
             console.log("non trovato");
           }
