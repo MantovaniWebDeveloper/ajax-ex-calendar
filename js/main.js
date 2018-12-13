@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  var thisDay = $(this);
   //trovato il metedo di moment per estrapolare quanti giorni possiede un mese
   console.log();
 
@@ -6,7 +7,8 @@ $(document).ready(function() {
   console.log(giorniGennaio);
   //salvo tutti i giorni di gennaio in un oggetto;
   var gennaio = {
-    giorni : []
+    giorni : [],
+    festivita : []
   }
   var giorno = 0;
   for (var i = 1; i <= giorniGennaio; i++) {
@@ -43,21 +45,11 @@ for (var i = 0; i < gennaio.giorni.length; i++) {
         var festivitaRecuperata = infoMese.holidays[i].date;
         //console.log(festivitaRecuperata);
         //poi le converto in un numero singolo
-        var dataFestivita = moment(festivitaRecuperata).format("D");
+        var dataFestivita = parseInt(moment(festivitaRecuperata).format("D"));
+        gennaio.festivita.push(dataFestivita);
         //console.log("festa: " + dataFestivita);
-        //applico il ciclo while con all'interno il confronta giorno / festivita
-        var trovato = false;
-        var contatore = 0;
-        while (!trovato) {
-          if (gennaio.giorni[contatore] == dataFestivita) {
-            console.log("trovato: " + dataFestivita);
-            trovato = true;
-
-          } else {
-            console.log("non trovato");
-          }
-
-          contatore++;
+        if(gennaio.giorni.includes(dataFestivita)){
+          console.log("trovato: " + dataFestivita);
         }
       }
 
@@ -69,4 +61,5 @@ for (var i = 0; i < gennaio.giorni.length; i++) {
 
 
   });
+  console.log(gennaio);
 });
