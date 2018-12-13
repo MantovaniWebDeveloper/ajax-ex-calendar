@@ -47,7 +47,7 @@ for (var i = 0; i < gennaio.giorni.length; i++) {
         //console.log("festa: " + dataFestivita);
         if(gennaio.giorni.includes(dataFestivita)){
           console.log("trovato: " + dataFestivita);
-          $("li").eq(dataFestivita - 1).css("color","red");
+          $("#wrapElenco .giorno").eq(dataFestivita - 1).css("color","red");
         }
       }
 
@@ -59,5 +59,4 @@ for (var i = 0; i < gennaio.giorni.length; i++) {
 
 
   });
-  console.log(gennaio);
 });
