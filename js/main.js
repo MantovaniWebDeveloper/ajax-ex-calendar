@@ -1,8 +1,5 @@
 $(document).ready(function() {
-  var thisDay = $(this);
   //trovato il metedo di moment per estrapolare quanti giorni possiede un mese
-  console.log();
-
   var giorniGennaio = moment("2017-01", "YYYY-MM").daysInMonth();
   console.log(giorniGennaio);
   //salvo tutti i giorni di gennaio in un oggetto;
@@ -50,6 +47,7 @@ for (var i = 0; i < gennaio.giorni.length; i++) {
         //console.log("festa: " + dataFestivita);
         if(gennaio.giorni.includes(dataFestivita)){
           console.log("trovato: " + dataFestivita);
+          $("li").eq(dataFestivita).css("color","red");
         }
       }
 
