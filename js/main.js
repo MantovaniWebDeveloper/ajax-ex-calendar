@@ -19,7 +19,14 @@ $(document).ready(function() {
         console.log(infoMese);
         console.log(infoMese.holidays.length);
         for (var i = 0; i < infoMese.holidays.length; i++) {
-          console.log(infoMese.holidays[i].date);
+          //salvo le festevita del mese
+          var festivitaRecuperata = infoMese.holidays[i].date;
+          console.log(festivitaRecuperata);
+          //poi le converto in un numero singolo
+          var dataFestivita = moment(festivitaRecuperata).format("D");
+          console.log(dataFestivita);
+
+
         }
 
       },
