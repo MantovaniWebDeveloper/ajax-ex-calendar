@@ -15,8 +15,13 @@ $(document).ready(function() {
         month: 1
       },
       success: function(data, stato) {
-        var infoMese = data.response;
+        var infoMese = data;
         console.log(infoMese);
+        console.log(infoMese.holidays.length);
+        for (var i = 0; i < infoMese.holidays.length; i++) {
+          console.log(infoMese.holidays[i].date);
+        }
+
       },
       error: function(richiesta, stato, errori) {
         console.log("c'è stato un errore " + errori);
