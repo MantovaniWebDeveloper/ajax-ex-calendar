@@ -11,6 +11,12 @@
   background-color: green;
   color:white;
 }
+#wrapSelectNazione {
+  height: 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
  #wrapElenco{
   width: 100%;
   height: 100%;
