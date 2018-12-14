@@ -1,7 +1,4 @@
 $(document).ready(function() {
-  //recupero valore nazione
-  var nazione = $('#selectListaNazioni').val();
-  console.log(nazione);
   //trovato il metedo di moment per estrapolare quanti giorni possiede un mese
   var giorniGennaio = moment("2017-01", "YYYY-MM").daysInMonth();
   console.log(giorniGennaio);
@@ -32,6 +29,20 @@ for (var i = 0; i < gennaio.giorni.length; i++) {
   var htmlStampato = templateCompilato(context);
   $('#wrapElenco').append(htmlStampato);
 }
+//Al click del pulsante seleziona
+$('#conferma').click(function(){
+  //recupero il valore dalla select
+  var nazione = $('#selectListaNazioni').val();
+  console.log("nazione scelta " + nazione);
+});
+//AL click del pulsante Prossimo
+$('#prossimo').click(function(){
+  alert("cliccato");
+});
+//AL click del pulsante Prossimo
+$('#precedente').click(function(){
+  alert("cliccato");
+});
 //chiamata per il mese di gennaio per scaricare festività
  $.ajax({
     url: "https://holidayapi.com/v1/holidays",
