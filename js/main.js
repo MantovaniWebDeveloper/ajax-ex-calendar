@@ -8,9 +8,12 @@ $(document).ready(function() {
     festivita : []
   }
   var giorno = 0;
+  var giornoMese;
   for (var i = 1; i <= giorniGennaio; i++) {
     giorno = i;
     gennaio.giorni.push(giorno);
+    giornoMese = moment("2017-01-"+giorno).format("ddd");
+    console.log(giornoMese)
   }
 console.log(gennaio);
 
@@ -24,7 +27,7 @@ for (var i = 0; i < gennaio.giorni.length; i++) {
   $('#wrapElenco').append(htmlStampato);
 }
 //chiamata per il mese di gennaio per scaricare festività
-  $.ajax({
+/*  $.ajax({
     url: "https://holidayapi.com/v1/holidays",
     method: "GET",
     data: {
@@ -59,5 +62,5 @@ for (var i = 0; i < gennaio.giorni.length; i++) {
     }
 
 
-  });
+  });*/
 });
