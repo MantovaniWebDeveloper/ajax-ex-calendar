@@ -11,10 +11,13 @@
   background-color: green;
   color:white;
 }
+#wrapInfoContainer{
+  height: 100px;
+  width: 100%;
+  background-color: red;
+}
 #wrapSelectNazione {
   height: 50px;
-  display: flex;
-  justify-content: flex-start;
   align-items: center;
 }
 #wrapSelectNazione select {

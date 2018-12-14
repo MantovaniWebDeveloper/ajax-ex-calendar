@@ -1,4 +1,7 @@
 $(document).ready(function() {
+  //recupero valore nazione
+  var nazione = $('#selectListaNazioni').val();
+  console.log(nazione);
   //trovato il metedo di moment per estrapolare quanti giorni possiede un mese
   var giorniGennaio = moment("2017-01", "YYYY-MM").daysInMonth();
   console.log(giorniGennaio);
