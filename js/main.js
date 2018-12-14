@@ -40,6 +40,7 @@ for (var i = 0; i < gennaio.giorni.length; i++) {
       for (var i = 0; i < infoMese.holidays.length; i++) {
         //salvo le festevita del mese
         var festivitaRecuperata = infoMese.holidays[i].date;
+        var nomeFestivitaRecuperata = infoMese.holidays[i].name;
         //console.log(festivitaRecuperata);
         //poi le converto in un numero singolo
         var dataFestivita = parseInt(moment(festivitaRecuperata).format("D"));
@@ -47,7 +48,7 @@ for (var i = 0; i < gennaio.giorni.length; i++) {
         //console.log("festa: " + dataFestivita);
         if(gennaio.giorni.includes(dataFestivita)){
           console.log("trovato: " + dataFestivita);
-          $("#wrapElenco .giorno").eq(dataFestivita - 1).css("color","red");
+          $("#wrapElenco .giorno").eq(dataFestivita - 1).css("backgroundColor","#fbeefe").append(nomeFestivitaRecuperata);;
         }
       }
 
