@@ -5,6 +5,7 @@ $(document).ready(function() {
   //salvo tutti i giorni di gennaio in un oggetto;
   var gennaio = {
     giorni : [],
+    nomeGiorni : [],
     festivita : []
   }
   var giorno = 0;
@@ -14,6 +15,7 @@ $(document).ready(function() {
     gennaio.giorni.push(giorno);
     giornoMese = moment("2017-01-"+giorno).format("ddd");
     console.log(giornoMese)
+    gennaio.nomeGiorni.push(giornoMese);
   }
 console.log(gennaio);
 
@@ -22,12 +24,13 @@ for (var i = 0; i < gennaio.giorni.length; i++) {
   var templateCompilato = Handlebars.compile(templateBase);
   var context = {
     giorni: gennaio.giorni[i],
+    nomiGiorniMese : gennaio.nomeGiorni[i]
   };
   var htmlStampato = templateCompilato(context);
   $('#wrapElenco').append(htmlStampato);
 }
 //chiamata per il mese di gennaio per scaricare festività
-/*  $.ajax({
+ $.ajax({
     url: "https://holidayapi.com/v1/holidays",
     method: "GET",
     data: {
@@ -62,5 +65,5 @@ for (var i = 0; i < gennaio.giorni.length; i++) {
     }
 
 
-  });*/
+  });
 });
