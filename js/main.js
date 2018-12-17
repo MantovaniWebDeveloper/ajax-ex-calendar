@@ -1,6 +1,9 @@
 $(document).ready(function() {
+  //creo data
+  var mese = moment('2017-01');
+  $('#nomeMese').html(mese.format('MMMM YYYY'));
   //trovato il metedo di moment per estrapolare quanti giorni possiede un mese
-  var giorniGennaio = moment("2017-01", "YYYY-MM").daysInMonth();
+  var giorniGennaio = moment(mese, "YYYY-MM").daysInMonth();
   console.log(giorniGennaio);
   //salvo tutti i giorni di gennaio in un oggetto;
   var gennaio = {
@@ -34,20 +37,28 @@ $(document).ready(function() {
     //recupero il valore dalla select
     var nazione = $('#selectListaNazioni').val();
     console.log("nazione scelta " + nazione);
-    chimataApi(nazione);
+    chimataApi(nazione,mese);
   });
   //AL click del pulsante Prossimo
   $('#prossimo').click(function() {
-    alert("cliccato");
+    //alert("cliccato");
+    //uso il metodo per aggiungere una data
+    mese.add(1,'M');
+    $('#nomeMese').html(mese.format('MMMM YYYY'));
+
   });
   //AL click del pulsante Prossimo
   $('#precedente').click(function() {
-    alert("cliccato");
+    //alert("cliccato");
+    //uso il metodo per sottrarre una data
+    mese.subtract(1,'M');
+    $('#nomeMese').html(mese.format('MMMM YYYY'));
+
   });
 
-  function chimataApi(nazione) {
+  function chimataApi(nazione,mese) {
     //chiamata per il mese di gennaio per scaricare festività
-    $.ajax({
+  /*  $.ajax({
       url: "https://holidayapi.com/v1/holidays",
       method: "GET",
       data: {
@@ -82,7 +93,7 @@ $(document).ready(function() {
       }
 
 
-    });
+    });*/
   }
 
 });

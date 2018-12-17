@@ -3,12 +3,12 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Slabo 27px', serif;
+  color: #000;
 }
 .container {
   width: 90%;
   margin: 0 auto;
   height: 100vh;
-  background-color: green;
   color:white;
 }
 #wrapInfoContainer{
@@ -16,6 +16,8 @@
   align-items: center;
   height: 100px;
   width: 100%;
+  margin-bottom: 15px;
+
 }
 #wrapInfoContainer button{
   font-size: 15px;
