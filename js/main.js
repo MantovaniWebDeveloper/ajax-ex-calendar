@@ -58,7 +58,7 @@ $(document).ready(function() {
 
   function chimataApi(nazione,mese) {
     //chiamata per il mese di gennaio per scaricare festività
-  /*  $.ajax({
+   $.ajax({
       url: "https://holidayapi.com/v1/holidays",
       method: "GET",
       data: {
@@ -93,7 +93,7 @@ $(document).ready(function() {
       }
 
 
-    });*/
+    });
   }
 
 });
